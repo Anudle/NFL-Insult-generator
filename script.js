@@ -1,3 +1,7 @@
+$('#teams select').change(function(){
+window.location.href=$('#teams select option:selected').val();
+})
+
 $(document).ready(function() {
         $.ajax({
                 url: 'https://www.reddit.com/r/nfl/comments/4v2dqe/rnfl_roast_of_the_denver_broncos_2532.json',
