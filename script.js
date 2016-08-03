@@ -19,11 +19,12 @@ $(document).ready(function() {
                             var comments = data[1].data.children
                             // var decodedText = ''
                             function insult() {
-                                $('#comment').html('')
+                                //$('#comment').html('')
                                 var randomNum = Math.floor(Math.floor(Math.random() * 30))
                                 for (i = randomNum; i < comments.length; i++)
 
                                     if ((comments[i].data.score > 200) && (comments[i].data.body.slice(0, 4) == "http")) { //SCORE
+                                    $('#comment').html('')
                                     console.log(comments[i].data.body_html)
                                     console.log(comments[i].data.body.slice(0, 4))
                                     $('#comment').html("<iframe src=" + comments[i].data.body + " height=600px width=600px>")
@@ -32,12 +33,14 @@ $(document).ready(function() {
                                     break
 
                                 } else if (comments[i].data.score > 200) {
-                                    // console.log(comments[i].data.body.length)
-
-
+                                    console.log(i)
+                                    console.log(comments[i].data.body)
+                                    console.log(comments[i].data.body_html)
+                                    console.log(comments[i].data.author)
+                                    $('#comment').html('')
                                     var encoded = (comments[i].data.body_html)
                                     var decode = $('<div />').html(encoded).text()
-                                    //$('#comment').trigger("reset")
+
                                     //decoder.html(comments[i].data.body_html)
                                     // decoder.html(comments[i].data.body_html)
                                     // decodedText += decoder.text()
@@ -58,7 +61,7 @@ $(document).ready(function() {
                             //   })
                             // })
 
-                            $('#button').click(function() {
+                            $('.btn').click(function() {
                                 insult()
                             })
 
