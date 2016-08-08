@@ -1,9 +1,51 @@
 body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #987284;
 }
-#gif{
-  height: 500px;
-  width: 500px;
+
+#teams {
+    position: relative;
+}
+h1 {
+    margin-left: 50px;
+}
+.NFLoutput {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#comment #authorWrapper{
+  position:absolute;
+    margin: 5px;
+
+}
+#authorWrapper{
+display: flex;
+
+}
+
+p{
+  font-size: 30px;
+}
+
+#flairHTML{
+  margin-left: 3px;
+  margin-bottom: 10px
+}
+
+.nflInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.flairClass{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
 }
