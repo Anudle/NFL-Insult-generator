@@ -1,12 +1,17 @@
 body{
-  background-color: #987284;
+  background-color: #fff;
 }
-
+a{
+  color:#fff;
+}
 #teams {
     position: relative;
 }
 h1 {
     margin-left: 50px;
+}
+h2{
+  margin-left: 10px;
 }
 .NFLoutput {
     position: relative;
@@ -22,9 +27,15 @@ h1 {
     margin: 5px;
 
 }
+#teamsSelect{
+  margin-left: 10px;
+}
 #authorWrapper{
 display: flex;
 
+}
+#authorName{
+  color: white;
 }
 
 p{
