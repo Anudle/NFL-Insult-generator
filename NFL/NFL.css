@@ -1,3 +1,5 @@
+
+/*font and body*/
 body {
     background-color: #fff;
 }
@@ -15,6 +17,8 @@ h1 {
 h2 {
     margin-left: 10px;
 }
+
+/*class css*/
 .NFLoutput {
     position: relative;
     display: flex;
@@ -24,19 +28,12 @@ h2 {
     margin-left: 100px;
     margin-right: 100px;
 }
-.nflInput {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 100px;
-    margin-right: 100px;
-}
 .flairClass {
     width: 25px;
     height: 25px;
     display: inline-block;
 }
-
+/*id css*/
 #comment #authorWrapper {
     position: absolute;
     margin: 5px;
@@ -48,7 +45,7 @@ h2 {
     display: flex;
 }
 #authorName {
-    color: white;
+    color: #fff;
 }
 #teams {
     position: relative;

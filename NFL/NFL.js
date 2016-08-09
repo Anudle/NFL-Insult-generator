@@ -1,14 +1,15 @@
 var selection = 'alert';
-$('.btn').click(function(){
-    if(selection ==='alert'){
-      swal("Uh oh, you didn't pick a team.") //an alert to make sure you picked a selection.
+var flair;
+$('.btn').click(function() {
+    if (selection === 'alert') {
+        swal("Uh oh, you didn't pick a team.") //an alert to make sure you picked a selection.
     }
 })
 $(document).ready(function() {
-        var flair;
+
         $('#teams').change(function(event) {
                 event.preventDefault();
-                 selection = $('#teamsSelect').val();
+                selection = $('#teamsSelect').val();
                 $.ajax({
                         url: 'https://www.reddit.com/r/nfl/comments/' + selection + '.json',
 
@@ -19,36 +20,28 @@ $(document).ready(function() {
 
                         success: function(data) {
 
-                                var comments = data[1].data.children
+                                var comments = data[1].data.children //simplify the reddit object.
 
                                 function insult() {
 
                                     var randomNum = Math.floor(Math.floor(Math.random() * 30))
-                                    for (i = randomNum; i < comments.length; i++)//random number generator.
-                                        if ((comments[i].data.body.slice(-5) !== "LnYl6") &&
-                                            (comments[i].data.body.slice(-5) !== "heewb") &&
-                                            (comments[i].data.body.slice(-5) !== "JxHAT") &&
-                                            (comments[i].data.body.slice(-5) !== 'TfGwh') &&
-                                            (comments[i].data.body.slice(-5) !== "ak04l") &&
-                                            (comments[i].data.body.slice(-5) !== "GSj1V") &&
-                                            (comments[i].data.body.slice(-5) !== "vBjHe") &&
-                                            (comments[i].data.score > 200) &&
-                                           (comments[i].data.body.slice(0, 4) == "http")) {
-                                        $('#comment').html('')//refreshes #comment
-                                        $('#comment').html("<iframe src=" + comments[i].data.body + " height=600px width=800px/>")//if a comment is just a like, play the link.
-                                        console.log(comments[i].data.body)
-                                        console.log(comments[i].data.body.slice(-5))
+                                    for (i = randomNum; i < comments.length; i++) //random number generator.
+                                        if ((comments[i].data.score > 200) &&  //pulls only comments with > 200 upvotes.
+                                        ((comments[i].data.body.slice(-4) == "gifv") || (comments[i].data.body.slice(-3) == "gif"))) {//comment ends with gif and gifv.
+                                        $('#comment').html('') //refreshes #comment
+                                        $('#comment').html("<iframe src=" + comments[i].data.body + " height=600px width=800px/>") //if a comment is just a like, play the link.
+
                                         flair = comments[i].data.author_flair_text
-                                        $('#author').html("-by " + comments[i].data.author)
+                                        $('#author').html("-by " + comments[i].data.author) //assign flair and author.
                                         break
                                     } else if (comments[i].data.score > 200) {
-                                      //body_html is the html version of the comment, var encoded and var decoded helps parse the document to make it presentable.
+                                        //body_html is the html version of the comment, var encoded and var decoded helps parse the document to make it presentable.
                                         $('#comment').html('')
                                         var encoded = (comments[i].data.body_html)
-                                        var decode = $('<div />').html(encoded).text()//
-                                        flair = comments[i].data.author_flair_text//assigns flair
+                                        var decode = $('<div />').html(encoded).text() //
+                                        flair = comments[i].data.author_flair_text //assigns flair
                                         $('#comment').append(decode) //the comment is told.
-                                        $('#authorName').html("-by " + comments[i].data.author + "")//provides the author of the comment.
+                                        $('#authorName').html("-by " + comments[i].data.author + "") //provides the author of the comment.
                                         break
                                     }
                                 }
@@ -113,7 +106,7 @@ $(document).ready(function() {
                                     } else if (flair == 'Vikings') {
                                         $('#flairHTML').html('<img class="flairClass" src="http://a.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fnfl%2F500%2Fmin.png" />')
                                     }
-                                }//closes flair function
+                                } //closes flair function
                                 function teamColor() {
                                     if (selection == '4uqavr/rnfl_roast_of_the_arizona_cardinals_2332') {
                                         $('body').css('background-color', '#97233F')
@@ -217,14 +210,14 @@ $(document).ready(function() {
                                         $('body').css('background-color', '#773141')
                                         $('.md li, p, .md a').css('color', '#FFB612')
                                     }
-                                }//closes team color function
-                                $('.btn').click(function() {//the insult button
+                                } //closes team color function
+                                $('.btn').click(function() { //the insult button
                                     insult()
                                 })
-                                $('.btn').click(function() {//function for changing flairs of teams
+                                $('.btn').click(function() { //function for changing flairs of teams
                                     flairFunction()
                                 })
-                                $('.btn').click(function() {//function for changing background color
+                                $('.btn').click(function() { //function for changing background color
                                     teamColor()
                                 })
                             } //closes success funtion
