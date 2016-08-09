@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- All the script links -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-0UBL8wxZ28kqJ8w8N8RUV0odBG5w8D/Y+rb+o7hr2F3dS9twlAE8S7VUtVSRe5cc" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="NFL.css" />
+    <script src="dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+    <title>NFL Insult</title>
+</head>
+
+<body>
+    <!-- Jumbotron div from bootstrap -->
+    <div class="jumbotron">
+        <h1 class="display-3">Your Team Sucks! <h1>
+  <h2 class="lead">We pulled the top roasts for each team from reddit.com/r/nfl to help you come up with the best burns!</h2>
+    <!-- select a team form -->
+    <form action="" id="teams">
+        <select name="teams" id='teamsSelect'>
+            <option value="alert" id='alertID'>Select a team</option>
+            <option value="4uqavr/rnfl_roast_of_the_arizona_cardinals_2332">Arizona Carinals</option>
+            <option value="4vo4wf/rnfl_roast_of_the_atlanta_falcons_2932">Atlanta Falcons</option>
+            <option value="4w66hq/rnfl_roast_of_the_baltimore_ravens_final_roast">Baltimore Ravens</option>
+            <option value="4rwc32/rnfl_roast_of_the_buffalo_bills_632">Buffalo Bills</option>
+            <option value="4uw9wj/rnfl_roast_of_the_carolina_panthers_2432">Carolina Panthers</option>
+            <option value="4re99x/rnfl_roast_of_the_chicago_bears">Chicago Bears</option>
+            <option value="4t0qbx/rnfl_roast_of_the_cincinnati_bengals_1332">Cincinnati Bengals</option>
+            <option value="4rqbq7/rnfl_roast_of_the_cleveland_browns_532">Cleveland Browns</option>
+            <option value="4ra2r8/rnfl_roast_of_the_dallas_cowboys_232">Dallas Cowboys</option>
+            <option value="4v2dqe/rnfl_roast_of_the_denver_broncos_253">Denver Broncos</option>
+            <option value="4u4eie/rnfl_roast_of_the_detroit_lions_1932">Detroit Lions</option>
+            <option value="4r3by8/rnfl_roast_of_the_green_bay_packers_132">Green Bay Packers</option>
+            <option value="4vig76/rnfl_roast_of_the_houston_texans_2832">Houston Texans</option>
+            <option value="4soujd/rnfl_roast_of_the_indianapolis_colts_1132">Indianapolis Colts</option>
+            <option value="4s6uan/rnfl_roast_of_the_jacksonville_jaguars_832">Jacksonville Jaguars</option>
+            <option value="4uejyk/rnfl_roast_of_the_kansas_city_chiefs">Kansas City Chiefs</option>
+            <option value="4s0uwo/rnfl_roast_of_the_st_louis_rams_732">Los Angeles Rams</option>
+            <option value="4w06ec/rnfl_roast_of_the_miami_dolphins_3132">Miami Dolphins</option>
+            <option value="4v86hm/rnfl_roast_of_the_minnesota_vikings_2632">Minnesota Vikings</option>
+            <option value="4ukacc/rnfl_roast_of_the_new_england_patriots_2232">New England Patriots</option>
+            <option value="4siq98/rnfl_roast_of_the_new_orleans_saints_1032">New Orleans Saints</option>
+            <option value="4vdfcw/rnfl_roast_of_the_new_york_giants_2732">New York Giants</option>
+            <option value="4tazs1/rnfl_roast_of_the_new_york_jets">New York Jets</option>
+            <option value="4t5xwo/rnfl_roast_of_the_oakland_raiders_1432">Okaland Raiders</option>
+            <option value="4scmwt/rnfl_roast_of_the_philadelphia_eagles_932">Philadelphia Eagles</option>
+            <option value="4u9jqi/rnfl_roast_of_the_pittsburgh_steelers_2032">Pittsburgh Steelers</option>
+            <option value="4rk6zu/rnfl_roast_of_the_san_diego_chargers_432">San Diego Chargers</option>
+            <option value="4tmu7h/rnfl_roast_of_the_san_francisco_49ers_1632">San Francisco 49ers</option>
+            <option value="4vu9q0/rnfl_roast_of_the_seattle_seahawks_3032">Seattle Seahawks</option>
+            <option value="4sv0xw/rnfl_roast_of_the_tampa_bay_buccaneers_1232">Tampa Bay Buccaneers</option>
+            <option value="4tym0t/rnfl_roast_of_the_tennessee_titans_1832">Tennessee Titans</option>
+            <option value="4tsqnv/rnfl_roast_of_the_washington_redskins_1732">Washington Redskins</option>
+        </select>
+    </form>
+    <h2>Select a team and push the INSULT button.</h2>
+  <h2 class="lead">
+    <a class="btn btn-danger btn-lg" href="#" role="button">INSULT</a>
+  </h2>
+</div>
+
+<!-- Next div is for the output -->
+  <div class="NFLoutput">
+    <div id="comment"></div>
+    <span id="authorWrapper">
+    <span id="authorName"> </span>
+    <span id="flairHTML"></span>
+  </span>
+</div>
+
+
+
+</body>
+<script src="NFL.js"></script>
+
+
+</html>
